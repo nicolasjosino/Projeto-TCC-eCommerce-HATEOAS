@@ -1,6 +1,7 @@
 package br.edu.uni7.ecommerce.product;
 
 import br.edu.uni7.ecommerce.review.Review;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,6 +20,7 @@ public class Product {
     private int stockQuantity;
 
     @OneToMany(mappedBy = "product")
+    @JsonIgnore
     private List<Review> reviews;
 }
 

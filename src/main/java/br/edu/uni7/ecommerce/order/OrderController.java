@@ -27,10 +27,10 @@ public class OrderController {
         return orderService.getOrderById(id);
     }
 
-    @PostMapping
-    public Order createOrder(@RequestBody Order order) {
-        return orderService.saveOrder(order);
-    }
+//    @PostMapping
+//    public Order createOrder(@RequestBody Order order) {
+//        return orderService.saveOrder(order);
+//    }
 
     @PutMapping("/{id}")
     public Order updateOrder(@PathVariable Long id, @RequestBody Order order) {
@@ -46,5 +46,10 @@ public class OrderController {
     @GetMapping("/{id}/items")
     public List<OrderItem> getItemsByOrder(@PathVariable Long id) {
         return orderService.getOrderById(id).get().getOrderItems();
+    }
+
+    @PostMapping
+    public Order createOrderWithItems(@RequestBody Order order) {
+        return orderService.saveOrderWithItems(order);
     }
 }
