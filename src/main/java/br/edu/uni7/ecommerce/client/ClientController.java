@@ -52,7 +52,7 @@ public class ClientController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Client> deleteClient(@PathVariable Long id) {
         clientService.deleteClient(id);
-        return ResponseEntity.noContent().build();
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @GetMapping("/{id}/orders")
