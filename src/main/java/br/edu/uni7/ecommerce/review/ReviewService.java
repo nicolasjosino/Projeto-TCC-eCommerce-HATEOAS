@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ReviewService {
@@ -15,8 +14,8 @@ public class ReviewService {
         return reviewRepository.findAll();
     }
 
-    public Optional<Review> getReviewById(Long id) {
-        return reviewRepository.findById(id);
+    public Review getReviewById(Long id) {
+        return reviewRepository.findById(id).orElse(null);
     }
 
     public Review saveReview(Review review) {
