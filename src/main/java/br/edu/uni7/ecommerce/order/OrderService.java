@@ -106,4 +106,15 @@ public class OrderService {
         return orderItemRepository.findByOrderOrderId(orderId);
     }
 
+    public Order updateOrderStatus(Long orderId, OrderStatus newStatus) {
+        Order order = orderRepository.findById(orderId).orElseThrow(() -> new OrderNotFoundException(orderId));
+        if (OrderStatus.valid(order.getOrderStatus(), newStatus)) {
+            order.setOrderStatus(newStatus);
+        } else {
+            throw new OrderStatusInvalid(newStatus);
+        }
+        orderRepository.save(order);
+        return order;
+    }
+
 }

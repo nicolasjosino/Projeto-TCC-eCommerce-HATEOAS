@@ -8,7 +8,7 @@ import java.util.List;
 @Data
 public class OrderDTO {
     private Date orderDate;
-    private String orderStatus;
+    private OrderStatus orderStatus = OrderStatus.CREATED;
     private Long clientId;
     private List<OrderItemDTO> orderItems;
 

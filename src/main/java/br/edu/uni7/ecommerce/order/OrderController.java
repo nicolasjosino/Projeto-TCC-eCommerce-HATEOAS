@@ -60,4 +60,22 @@ public class OrderController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @PostMapping("/{id}/pay")
+    public ResponseEntity<Order> payOrder(@PathVariable Long id) {
+        Order paidOrder = orderService.updateOrderStatus(id, OrderStatus.PAID);
+        return new ResponseEntity<>(paidOrder, HttpStatus.OK);
+    }
+
+    @PostMapping("/{id}/fulfill")
+    public ResponseEntity<Order> fulfillOrder(@PathVariable Long id) {
+        Order paidOrder = orderService.updateOrderStatus(id, OrderStatus.FULFILLED);
+        return new ResponseEntity<>(paidOrder, HttpStatus.OK);
+    }
+
+    @PostMapping("/{id}/cancel")
+    public ResponseEntity<Order> cancelOrder(@PathVariable Long id) {
+        Order paidOrder = orderService.updateOrderStatus(id, OrderStatus.CANCELLED);
+        return new ResponseEntity<>(paidOrder, HttpStatus.OK);
+    }
 }

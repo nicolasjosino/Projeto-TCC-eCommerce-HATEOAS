@@ -18,7 +18,7 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long orderId;
     private Date orderDate;
-    private String orderStatus;
+    private OrderStatus orderStatus;
 
     @ManyToOne
     @JoinColumn(name = "client_id")
