@@ -8,13 +8,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.util.List;
 
 @Entity
 @Data
 @Table(name = "CLIENTS")
-public class Client {
+public class Client extends RepresentationModel<Client> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long clientId;

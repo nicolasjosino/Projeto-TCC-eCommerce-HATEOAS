@@ -8,13 +8,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.hateoas.RepresentationModel;
 
 import java.util.Date;
 
 @Entity
 @Data
 @Table(name = "REVIEWS")
-public class Review {
+public class Review extends RepresentationModel<Review> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reviewId;
